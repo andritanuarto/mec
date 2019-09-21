@@ -2,7 +2,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import store from '../../store';
 import HeaderContainer from '../header/header-container';
-import Products from '../products/products';
+import ProductsContainer from '../products/products-container';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 const App = () => {
@@ -11,7 +11,7 @@ const App = () => {
       <div className="App">
         <Router>
           <Route path="/" component={HeaderContainer} />
-          <Route path="/products" component={Products} />
+          <Route path="/products" component={ProductsContainer} />
         </Router>
       </div>
     </Provider>

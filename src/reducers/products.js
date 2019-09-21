@@ -1,14 +1,14 @@
 import { SEARCH } from '../actions/action-types';
 
 const initialState = {
-  keyword: "nothing"
+  products: []
 };
 
 export default (state = initialState, action = {}) => {
   switch (action.type) {
-    case SEARCH.SET_KEYWORD: {
+    case SEARCH.GET_PRODUCTS: {
       return Object.assign({}, state, {
-        keyword: action.keyword
+        products: action.products
       });
     }
 
