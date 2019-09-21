@@ -1,4 +1,4 @@
-export const SEARCH = {
+export const PRODUCTS = {
   GET_PRODUCTS: 'GET_PRODUCTS',
   LOADING: 'LOADING'
 };

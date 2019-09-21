@@ -1,4 +1,4 @@
-import { SEARCH } from '../actions/action-types';
+import { PRODUCTS } from '../actions/action-types';
 
 const initialState = {
   items: [],
@@ -7,13 +7,13 @@ const initialState = {
 
 export default (state = initialState, action = {}) => {
   switch (action.type) {
-    case SEARCH.GET_PRODUCTS: {
+    case PRODUCTS.GET_PRODUCTS: {
       return Object.assign({}, state, {
-        products: action.products
+        items: action.products
       });
     }
 
-    case SEARCH.LOADING: {
+    case PRODUCTS.LOADING: {
       return Object.assign({}, state, {
         loading: action.loading
       });

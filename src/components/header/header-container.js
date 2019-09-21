@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Header from './header';
-import { handleSearch } from '../../actions/search';
+import { handleSearch } from '../../actions/products';
 
 const mapStateToProps = (state) => {
   return {

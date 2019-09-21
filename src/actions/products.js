@@ -1,6 +1,6 @@
 import axios from 'axios';
 import config from '../config';
-import { SEARCH } from './action-types';
+import { PRODUCTS } from './action-types';
 
 export const handleSearch = (keyword) => {
   return (dispatch) => {
@@ -23,14 +23,14 @@ export const handleSearch = (keyword) => {
 
 const setSearchedProducts = (products) => {
   return {
-    type: SEARCH.GET_PRODUCTS,
+    type: PRODUCTS.GET_PRODUCTS,
     products
   }
 };
 
 const setLoading = (loading) => {
   return {
-    type: SEARCH.LOADING,
+    type: PRODUCTS.LOADING,
     loading
   }
 }
