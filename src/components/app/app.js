@@ -1,20 +1,18 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import store from '../../store';
+import HeaderContainer from '../header/header-container';
+import Products from '../products/products';
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 const App = () => {
-  const handleSearch = (e) => {
-    if (e.key === 'Enter') {
-      console.log(e.target.value);
-    }
-  }
-
   return (
     <Provider store={store}>
       <div className="App">
-        <header className="App-header">
-          <input type="text" placeholder="search" onKeyDown={handleSearch}/>
-        </header>
+        <Router>
+          <Route path="/" component={HeaderContainer} />
+          <Route path="/products" component={Products} />
+        </Router>
       </div>
     </Provider>
   );
