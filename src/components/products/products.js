@@ -1,33 +1,34 @@
 import React, { useEffect }from 'react';
 import queryString from 'query-string';
+import _ from 'lodash';
 
 const Products = (props) => {
-  const handleProductSearch = (keyword) => {
-    props.getProducts(keyword);
-  }
-
-  const keyword = queryString.parse(props.location.search).keyword;
+  const { getProducts, location, products, loading } = props;
 
   useEffect(() => {
-    handleProductSearch(keyword);
-  },[keyword]);
+    getProducts(queryString.parse(location.search).keyword);
+  },[getProducts, location]);
 
-  const products = props.products.map((product) => {
-    console.log(product);
-    return (
-      <li key={product.product_code}>
-        <img src={product.default_image_urls.small_image_url} alt={product.default_image_urls} />
-        {product.full_name}
-      </li>
-    );
-  });
-
+  const productsItems = !_.isUndefined(products)
+    ?
+      products.map((product) => {
+        return (
+          <li key={product.product_code}>
+            <img
+              src={product.default_image_urls.small_image_url}
+              alt={product.default_image_urls}
+            />
+            {product.full_name}
+          </li>
+        );
+      })
+    : <li>Can't Find Product You</li>;
 
   return (
     <div className="product">
-      {products}
+      {loading ? "Loading" : productsItems}
     </div>
-  )
+  );
 }
 
 export default Products;

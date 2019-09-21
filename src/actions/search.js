@@ -1,19 +1,37 @@
-import { SEARCH } from './action-types';
 import axios from 'axios';
+import config from '../config';
+import { SEARCH } from './action-types';
 
-export const handleSearch = (query) => {
+export const handleSearch = (keyword) => {
   return (dispatch) => {
-    return axios.get(`https://www.mec.ca/api/v1/products/search?keywords=tent`).then((response) => {
-      dispatch(setSearchedProducts(response.data.products));
+    dispatch(setLoading(true));
+    return axios.get(`${config.BASE_URL}/products/search?keywords=${keyword}`).then((response) => {
+      if (!response.total_product_count) {
+        dispatch(setSearchedProducts(response.data.products));
+        dispatch(setLoading(false));
+      } else {
+        dispatch(setSearchedProducts([]));
+        dispatch(setLoading(false));
+      }
     }).catch((error) => {
+      console.log(error);
       dispatch(setSearchedProducts([]));
+      dispatch(setLoading(false));
     });
   }
 }
 
-export const setSearchedProducts = (products) => {
+const setSearchedProducts = (products) => {
   return {
     type: SEARCH.GET_PRODUCTS,
     products
   }
 };
+
+const setLoading = (loading) => {
+  return {
+    type: SEARCH.LOADING,
+    loading
+  }
+}
+

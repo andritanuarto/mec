@@ -5,6 +5,7 @@ import { handleSearch } from '../../actions/search';
 const mapStateToProps = (state) => {
   return {
     products: state.products.products,
+    loading: state.products.loading
   };
 };
 

@@ -1,7 +1,8 @@
 import { SEARCH } from '../actions/action-types';
 
 const initialState = {
-  products: []
+  items: [],
+  loading: false,
 };
 
 export default (state = initialState, action = {}) => {
@@ -9,6 +10,12 @@ export default (state = initialState, action = {}) => {
     case SEARCH.GET_PRODUCTS: {
       return Object.assign({}, state, {
         products: action.products
+      });
+    }
+
+    case SEARCH.LOADING: {
+      return Object.assign({}, state, {
+        loading: action.loading
       });
     }
 
