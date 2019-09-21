@@ -1,4 +1,5 @@
 import React from 'react';
+import config from '../../config';
 
 const Header = (props) => {
   const searchHandler = (e) => {
@@ -11,7 +12,8 @@ const Header = (props) => {
   }
 
   return (
-    <header className="App-header">
+    <header className="header">
+      <div className="mec-logo" dangerouslySetInnerHTML={{ __html: config.LOGO }} />
       <input type="text" placeholder="search" onKeyDown={searchHandler}/>
     </header>
   );
