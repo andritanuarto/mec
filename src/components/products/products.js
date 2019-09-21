@@ -13,20 +13,35 @@ const Products = (props) => {
     ?
       products.map((product) => {
         return (
-          <li key={product.product_code}>
-            <img
-              src={product.default_image_urls.small_image_url}
-              alt={product.default_image_urls}
-            />
-            {product.full_name}
+          <li className="products__list__item" key={product.product_code}>
+              <div className="products__list__img-container">
+                <img
+                  src={product.default_image_urls.small_image_url}
+                  alt={product.default_image_urls}
+                />
+              </div>
+              <div className="products__list__name">{product.full_name}</div>
           </li>
         );
       })
-    : <li>Can't Find Product You</li>;
+    : <li className="products__list__item--empty">
+        Can't find products that you're looking for
+      </li>;
+
+  const loader = (
+    <div class="loader">
+      Loading
+      <span class="loader__dot">.</span>
+      <span class="loader__dot">.</span>
+      <span class="loader__dot">.</span>
+    </div>
+  )
 
   return (
-    <div className="product">
-      {loading ? "Loading" : productsItems}
+    <div className="products">
+      <ul className="products__list">
+        {loading ? loader : productsItems}
+      </ul>
     </div>
   );
 }

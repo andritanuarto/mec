@@ -1,6 +1,4 @@
-body {
-  background: yellow;
-  .mec-logo {
-    width: 200px;
-  }
-}
+@import './_general';
+@import './shared/_loader';
+@import './_header';
+@import './products';

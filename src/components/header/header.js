@@ -13,8 +13,10 @@ const Header = (props) => {
 
   return (
     <header className="header">
-      <div className="mec-logo" dangerouslySetInnerHTML={{ __html: config.LOGO }} />
-      <input type="text" placeholder="search" onKeyDown={searchHandler}/>
+      <div className="header__center">
+        <div className="header__logo" dangerouslySetInnerHTML={{ __html: config.LOGO }} />
+        <input className="header__search" type="text" placeholder="search" onKeyDown={searchHandler}/>
+      </div>
     </header>
   );
 }
