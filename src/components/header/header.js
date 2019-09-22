@@ -1,6 +1,7 @@
 import React from 'react';
 import config from '../../config';
 import { Link } from 'react-router-dom';
+
 const Header = (props) => {
   const searchHandler = (e) => {
     if (e.key === 'Enter') {
@@ -12,8 +13,6 @@ const Header = (props) => {
       e.target.value = null;
     }
   }
-
-  console.log(props.location.pathname);
 
   return (
     <header className={props.location.pathname === '/' ? 'header header--full' : 'header'}>

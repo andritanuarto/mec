@@ -9,7 +9,6 @@ const App = () => {
   return (
     <Provider store={store}>
       <div className="app">
-        <p className="text">test</p>
         <Router>
           <Route path="/" component={HeaderContainer} />
           <Route path="/products" component={ProductsContainer} />
