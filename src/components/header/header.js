@@ -8,6 +8,8 @@ const Header = (props) => {
         pathname: "/products",
         search: `?keyword=${e.target.value}`
       });
+
+      e.target.value = null;
     }
   }
 
