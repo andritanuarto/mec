@@ -8,7 +8,8 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 const App = () => {
   return (
     <Provider store={store}>
-      <div className="App">
+      <div className="app">
+        <p className="text">test</p>
         <Router>
           <Route path="/" component={HeaderContainer} />
           <Route path="/products" component={ProductsContainer} />
