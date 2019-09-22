@@ -29,11 +29,11 @@ const Products = (props) => {
       </li>;
 
   const loader = (
-    <div class="loader">
+    <div className="loader">
       Loading
-      <span class="loader__dot">.</span>
-      <span class="loader__dot">.</span>
-      <span class="loader__dot">.</span>
+      <span className="loader__dot">.</span>
+      <span className="loader__dot">.</span>
+      <span className="loader__dot">.</span>
     </div>
   )
 
