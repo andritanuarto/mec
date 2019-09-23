@@ -1,6 +1,7 @@
 import React, { useEffect }from 'react';
 import queryString from 'query-string';
 import _ from 'lodash';
+import PropTypes from 'prop-types';
 
 const Products = (props) => {
   const { getProducts, location, products, loading } = props;
@@ -44,6 +45,13 @@ const Products = (props) => {
       </ul>
     </div>
   );
+}
+
+Products.propTypes = {
+  getProducts: PropTypes.func.isRequired,
+  location: PropTypes.object.isRequired,
+  products: PropTypes.array,
+  loading: PropTypes.bool
 }
 
 export default Products;

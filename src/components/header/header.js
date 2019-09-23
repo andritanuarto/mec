@@ -1,6 +1,7 @@
 import React from 'react';
 import config from '../../config';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const Header = (props) => {
   const searchHandler = (e) => {
@@ -31,6 +32,11 @@ const Header = (props) => {
       </div>
     </header>
   );
+}
+
+Header.propTypes = {
+  history: PropTypes.object,
+  location: PropTypes.object.isRequired
 }
 
 export default Header;
